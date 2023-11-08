@@ -32,7 +32,9 @@ const curPath = ref( window.location.pathname);
     </div>
   </header>
 
-  <RouterView />
+  <div class="content">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
@@ -40,6 +42,12 @@ header {
   display: flex;
   height: 127px;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100vw;
+  background-color: #fff;
+  overflow: hidden;
 }
 header .logo {
   height: 100%;
@@ -55,5 +63,9 @@ header .wrapper .el-menu--horizontal {
 header .wrapper .el-menu-item {
   font-size: 16px;
   font-weight: 700;
+}
+
+.conetent {
+  margin-top: 127px;
 }
 </style>
