@@ -1,29 +1,32 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
+import { ref } from 'vue';
+
+const curPath = ref( window.location.pathname);
 </script>
 
 <template>
   <header>
     <div class="logo"></div>
     <div class="wrapper">
-      <el-menu mode="horizontal">
-        <el-menu-item index="1">
-          <RouterLink to="/">首页</RouterLink>
+      <el-menu mode="horizontal" ellipsis="false" router="true" :default-active="curPath">
+        <el-menu-item index="/">
+          首页
         </el-menu-item>
-        <el-menu-item index="2">
-          <RouterLink to="/about">公司简介</RouterLink>
+        <el-menu-item index="/about">
+          公司简介
         </el-menu-item>
-        <el-menu-item index="3">
-          <RouterLink to="/mechanical">机械设备</RouterLink>
+        <el-menu-item index="/mechanical">
+          机械设备
         </el-menu-item>
-        <el-menu-item index="4">
-          <RouterLink to="/production">产品服务</RouterLink>
+        <el-menu-item index="/production">
+          产品服务
         </el-menu-item>
-        <el-menu-item index="5">
-          <RouterLink to="/solution">解决方案</RouterLink>
+        <el-menu-item index="/solution">
+          解决方案
         </el-menu-item>
-        <el-menu-item index="6">
-          <RouterLink to="/contact">联系我们</RouterLink>
+        <el-menu-item index="/contact">
+          联系我们
         </el-menu-item>
       </el-menu>
     </div>
@@ -33,26 +36,6 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style scoped>
-header .wrapper a {
-  color: inherit;
-  text-decoration: none;
-}
-
-header .wrapper a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-
-header .wrapper a:visited {
-  color: inherit;
-  text-decoration: none;
-}
-
-header .wrapper a:active {
-  color: inherit;
-  text-decoration: none;
-}
-
 header {
   display: flex;
   height: 127px;
@@ -64,5 +47,13 @@ header .logo {
 }
 header .wrapper {
   width: calc(100% - 700px);
+}
+header .wrapper .el-menu--horizontal {
+  border-bottom: none;
+  height: 80px;
+}
+header .wrapper .el-menu-item {
+  font-size: 16px;
+  font-weight: 700;
 }
 </style>
