@@ -124,14 +124,13 @@ export default {
   },
   methods: {
     move() {
-      this.timer = setInterval(() => {
-        if (this.moveLeft === -1555) {
+      let liElements = document.getElementsByClassName("partners-content-carousel-item");
+      this.timer = setInterval(() => {  
+        if (Math.abs(this.moveLeft) % 295 === 0 && this.moveLeft !== 0) {
+          this.imageList.push(item);
           this.moveLeft = 0;
         }
         this.moveLeft -= 5;
-        let liElements = document.getElementsByClassName(
-          "partners-content-carousel-item"
-        );
         for (let i = 0; i < liElements.length; i++) {
           liElements[i].style.transform = `translateX(${this.moveLeft}px)`;
         }
