@@ -132,7 +132,7 @@ export default {
         let liElements = document.getElementsByClassName(
           "partners-content-carousel-item"
         );
-        for (let i = 0; i > liElements.length; i++) {
+        for (let i = 0; i < liElements.length; i++) {
           liElements[i].style.transform = `translateX(${this.moveLeft}px)`;
         }
       }, 200);
@@ -140,13 +140,6 @@ export default {
   },
   mounted() {
     this.move();
-    // let liElements = document.getElementsByClassName(
-    //   "partners-content-carousel-item"
-    // );
-    // console.log(liElements);
-    // for (let i = 0; i > liElements.length; i++) {
-    //   liElements[i].style.transform = `translateX(-100px)`;
-    // }
   },
 };
 </script>
@@ -285,9 +278,8 @@ li {
 .partners-content-carousel {
   display: flex;
   height: 194px;
-  width: 1556px;
+  max-width: 1556px;
   margin-top: 18px;
-  border: 1px solid red;
   overflow: hidden;
 }
 
