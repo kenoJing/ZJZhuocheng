@@ -1,31 +1,4 @@
-<script setup lang="ts">
-const visionModuleList = [
-  {
-    image:
-      "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAg2vaGqgYomI-wuQcw8AU48AU.png",
-    title: "定位",
-    text: "立足国内市场，走向世界",
-  },
-  {
-    image:
-      "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYouuTb4wMw8AU48AU.png",
-    title: "理念",
-    text: "诚信、敬业、务实、创新",
-  },
-  {
-    image:
-      "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYo9tevtwQw8AU48AU.png",
-    title: "目标",
-    text: "国际化、品牌化、专业化",
-  },
-  {
-    image:
-      "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYonMm9nQMw8AU48AU.png",
-    title: "使命",
-    text: "成就客户、成就品牌、成就员工",
-  },
-];
-</script>
+
 <template>
   <div>
     <el-image
@@ -68,11 +41,119 @@ http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgo_2GqgYo8KOMrAcwwQQ4jQM.png.webp"
         </div>
       </div>
     </div>
+    <div class="partners">
+      <div class="partners-content">
+        合作伙伴
+        <div class="partners-content-item">PARTNERS</div>
+        <ul class="partners-content-carousel">
+          <li
+            class="partners-content-carousel-item"
+            v-for="item in imageList"
+            :key="item.keys"
+          >
+            <el-image
+              :src="item.url"
+              class="partners-content-carousel-image"
+            ></el-image>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
-
+<script>
+export default {
+  data() {
+    return {
+      visionModuleList: [
+        {
+          image:
+            "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAg2vaGqgYomI-wuQcw8AU48AU.png",
+          title: "定位",
+          text: "立足国内市场，走向世界",
+        },
+        {
+          image:
+            "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYouuTb4wMw8AU48AU.png",
+          title: "理念",
+          text: "诚信、敬业、务实、创新",
+        },
+        {
+          image:
+            "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYo9tevtwQw8AU48AU.png",
+          title: "目标",
+          text: "国际化、品牌化、专业化",
+        },
+        {
+          image:
+            "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgm-OGqgYonMm9nQMw8AU48AU.png",
+          title: "使命",
+          text: "成就客户、成就品牌、成就员工",
+        },
+      ],
+      imageList: [
+        {
+          keys: 1,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgjeCGqgYoqJuRhQIw4wI4wQE.png.webp",
+        },
+        {
+          keys: 2,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgjOCGqgYow_LfkgQwgQI4qwE.png.webp",
+        },
+        {
+          keys: 3,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgjeCGqgYo8-_0iQIw-QI4wAE.png.webp",
+        },
+        {
+          keys: 4,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgjOCGqgYo5r-_gQIwxAE4RA.png.webp",
+        },
+        {
+          keys: 5,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgjeCGqgYosszZzgMwrgM4bw.png.webp",
+        },
+        {
+          keys: 6,
+          url: "http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgt_SGqgYosMeqxwIweThB.png.webp",
+        },
+      ],
+      timer: null,
+      moveLeft: 0,
+    };
+  },
+  methods: {
+    move() {
+      this.timer = setInterval(() => {
+        if (this.moveLeft === -1555) {
+          this.moveLeft = 0;
+        }
+        this.moveLeft -= 5;
+        let liElements = document.getElementsByClassName(
+          "partners-content-carousel-item"
+        );
+        for (let i = 0; i > liElements.length; i++) {
+          liElements[i].style.transform = `translateX(${this.moveLeft}px)`;
+        }
+      }, 200);
+    },
+  },
+  mounted() {
+    this.move();
+    // let liElements = document.getElementsByClassName(
+    //   "partners-content-carousel-item"
+    // );
+    // console.log(liElements);
+    // for (let i = 0; i > liElements.length; i++) {
+    //   liElements[i].style.transform = `translateX(-100px)`;
+    // }
+  },
+};
+</script>
 <style scoped>
+li {
+  list-style: none;
+}
 .banner {
   height: 477px;
 }
@@ -123,10 +204,11 @@ http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgo_2GqgYo8KOMrAcwwQQ4jQM.png.webp"
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 789px;
+  height: 1013px;
   background-image: url("http://31728769.s21i.faiusr.com/2/ABUIABACGAAgwvKHqgYokI7NHzCADzjYBA.jpg.webp");
   background-size: cover;
   font-family: 微软雅黑;
+  background-position: center center;
 }
 
 .vision-content {
@@ -178,5 +260,40 @@ http://31728769.s21i.faiusr.com/4/ABUIABAEGAAgo_2GqgYo8KOMrAcwwQQ4jQM.png.webp"
   margin-top: 12px;
   font-size: 14px;
   color: rgb(153, 153, 153);
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 575px;
+}
+.partners-content {
+  height: 282px;
+  font-size: 24px;
+  font-family: 微软雅黑;
+  font-weight: 700;
+  text-align: center;
+}
+.partners-content-item {
+  margin-top: 4px;
+  font-size: 16px;
+  color: rgb(153, 153, 153);
+  font-weight: 400;
+}
+
+.partners-content-carousel {
+  display: flex;
+  height: 194px;
+  width: 1556px;
+  margin-top: 18px;
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.partners-content-carousel-image {
+  width: 295px;
+  height: 194px;
+  padding: 40px 17px;
 }
 </style>
